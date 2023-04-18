@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Characters Mobile Scroll</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link href="css/style-scroll.css" rel="stylesheet" />
+  </head>
+  <body>
+    <section class="spotlight-bottom"></section>
+    <section class="max-characters pt-5">
+      <div class="container-fluid">
+        <div class="characters-copy row">
+          <div class="d-flex flex-column col-md-12 align-items-center justify-content-center">
+            <h1>Introducing Max</h1>
+            <p>Max is the one to watch for every mood and every moment. Explore the iconic worlds of HBO and DC Universe, plus fan-favorite genres like true crime, reality, food, and comedy.</p>
+          </div>
+        </div>
+
+        <!-- Scroll on mobile -->
+        <div class="characters-grid row d-flex flex-row">
+          <div class="scroll-indicator d-flex align-items-center justify-content-start">
+            <svg width="50" height="18" viewBox="0 0 50 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="25" cy="9" r="7" stroke="#ffffff" stroke-width="3" />
+              <path d="M9.27647 16L2.20541 8.92893" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+              <path d="M9.07107 1.66451L2 8.73557" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+              <path d="M41 2L48.0711 9.07107" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+              <path d="M41.2054 16.3355L48.2765 9.26443" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+            </svg>
+          </div>
+          <div class="col-md-1 pb-md-4 d-flex flex-column align-items-center justify-content-end comedy"><p>Comedy</p></div>
+          <div class="col-md-1 pb-md-4 d-flex flex-column align-items-center justify-content-end cooking"><p>Cooking</p></div>
+          <div class="col-md-1 pb-md-4 d-flex flex-column align-items-center justify-content-end action"><p>Action</p></div>
+          <div class="col-md-1 pb-md-4 d-flex flex-column align-items-center justify-content-end movies"><p>Movies</p></div>
+          <div class="col-md-1 pb-md-4 d-flex flex-column align-items-center justify-content-end home"><p>Home</p></div>
+          <div class="col-md-1 pb-md-4 d-flex flex-column align-items-center justify-content-end drama"><p>Drama</p></div>
+          <div class="col-md-1 pb-md-4 d-flex flex-column align-items-center justify-content-end reality"><p>Reality</p></div>
+          <div class="col-md-1 pb-md-4 d-flex flex-column align-items-center justify-content-end others"><p>Others</p></div>
+        </div>
+      </div>
+    </section>
+    <script>
+      const horizontalScrollingMediaQuery = window.matchMedia("(max-width: 768px)");
+      if (horizontalScrollingMediaQuery.matches) {
+        var charactersScrollActive = document.querySelector(".characters-grid");
+        if (charactersScrollActive) {
+          charactersScrollActive.addEventListener("scroll", (event) => {
+            charactersScrollActive.classList.add("scrolled");
+            document.querySelector(".scrolled .scroll-indicator").style.opacity = "0";
+            document.querySelectorAll(".scrolled .col-md-1").forEach((item) => (item.style.animation = "none"));
+          });
+        }
+      }
+    </script>
+  </body>
+</html>
