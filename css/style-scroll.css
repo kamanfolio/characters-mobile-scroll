@@ -1,0 +1,188 @@
+.max-characters {
+    background-image: linear-gradient(180deg, #0033FF 0%, #000066 103.18%);
+    color: #ffffff;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.max-characters .characters-copy p {
+    text-align: center;
+    max-width: 880px;
+    margin: 1rem auto 3rem;
+    line-height: 1.875rem;
+}
+
+.max-characters .col-md-1 {
+    background-size: cover;
+    background-position: center;
+    min-height: 40vw;
+    border-left: 1px solid #5922E6;
+    border-right: 1px solid #5922E6;
+    width: calc(100% / 8);
+}
+
+.max-characters .col-md-1.comedy {
+    background-image: url('https://dummyimage.com/230x650/fff/aaa');
+}
+
+.max-characters .col-md-1.cooking {
+    background-image: url('https://dummyimage.com/230x650/000/fff');
+}
+
+.max-characters .col-md-1.action {
+    background-image: url('https://dummyimage.com/230x650/fff/aaa');
+}
+
+.max-characters .col-md-1.movies {
+    background-image: url('https://dummyimage.com/230x650/000/fff');
+}
+
+.max-characters .col-md-1.home {
+    background-image: url('https://dummyimage.com/230x650/fff/aaa');
+}
+
+.max-characters .col-md-1.drama {
+    background-image: url('https://dummyimage.com/230x650/000/fff');
+}
+
+.max-characters .col-md-1.reality {
+    background-image: url('https://dummyimage.com/230x650/fff/aaa');
+}
+
+.max-characters .col-md-1.others {
+    background-image: url('https://dummyimage.com/230x650/000/fff');
+}
+
+.max-characters .col-md-1::after {
+    content: "";
+    height: 48%;
+    width: calc(100% / 8);
+    position: absolute;
+    z-index: 1;
+    background-image: linear-gradient(180deg, rgba(0, 0, 102, 0) 0%, rgba(0, 0, 102, 1) 95%);
+    bottom: 0;
+}
+
+.max-characters .col-md-1 p {
+    z-index: 2;
+}
+
+/* Scrollable Version on Mobile */
+@media(min-width: 768px) {
+    .max-characters .scroll-indicator {
+        display: none !important;
+    }
+}
+
+@media(max-width: 767px) {
+    .max-characters {
+        overflow-x: hidden;
+    }
+
+    .max-characters .characters-grid {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        scrollbar-width: none;
+        position: relative;
+    }
+
+    .max-characters .col-md-1::after {
+        width: 100%;
+    }
+
+    .max-characters .characters-grid.scrolled .col-md-1::after {
+        width: 25% !important;
+    }
+
+    .max-characters .col-md-1 {
+        width: 25%;
+        min-height: 65vw;
+        animation: scrollBounce 7s ease 0s infinite normal forwards;
+    }
+
+    .max-characters .characters-grid::-webkit-scrollbar {
+        width: 0 !important;
+        height: 0 !important;
+    }
+
+    .max-characters .scroll-indicator {
+        position: absolute;
+        height: 100%;
+        min-width: calc(25% * 8);
+        z-index: 2;
+        transition: all 1s ease-in-out;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 0;
+    }
+
+    .max-characters .scroll-indicator svg {
+        width: 100vw;
+        animation: scrollBounce 7s ease 0s infinite normal forwards;
+    }
+
+    @keyframes scrollBounce {
+        0% {
+            animation-timing-function: ease-in;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        5% {
+            animation-timing-function: ease-in;
+            opacity: 1;
+            transform: translateX(-20px);
+        }
+
+        10% {
+            animation-timing-function: ease-in;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        15% {
+            animation-timing-function: ease-in;
+            opacity: 1;
+            transform: translateX(-20px);
+        }
+
+        20% {
+            animation-timing-function: ease-in;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        100% {
+            animation-timing-function: ease-out;
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+}
+
+/* Spotlight Curve */
+.spotlight-bottom {
+    background-color: white;
+}
+
+.spotlight-bottom::after {
+    background: inherit;
+    content: '';
+    clip-path: ellipse(60% 6vw at top center);
+    display: block;
+    height: 6vw;
+    width: 100%;
+    position: relative;
+    top: 6vw;
+    z-index: 1;
+}
+
+.spotlight-bottom+section>div {
+    padding-top: 6vw !important;
+    position: relative;
+    /* top: -6vw; */
+}
